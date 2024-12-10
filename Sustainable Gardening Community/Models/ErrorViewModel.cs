@@ -1,4 +1,4 @@
-namespace Sustainable_Gardening_Community.Models
+namespace AuthSystem.Models
 {
     public class ErrorViewModel
     {
