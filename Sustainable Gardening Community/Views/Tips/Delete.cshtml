@@ -1,0 +1,65 @@
+﻿@model Sustainable_Gardening_Community.Dtos.TipsDto
+@{
+    ViewData["Title"] = "Delete Tips";
+}
+
+
+<h1 class="text-center p-2 bg-warning text-light mt-2">Are you sure, you want to Delete this!</h1>
+
+<form asp-action="Delete" asp-controller="Tips" enctype="multipart/form-data" method="post">
+    <div class="row d-flex justify-content-center">
+        <input asp-for="Id" type="hidden" />
+        <input asp-for="Image" type="hidden" />
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header bg-secondary text-light">
+                    <h3 class="text-center">Tips Informations</h3>
+                </div>
+                <div class="card-body">
+
+                    <img class="mb-3 mt-2 " src="@Model.Image" width="100%" height="auto" />
+                    @* <div class="row mb-2">
+                        <label asp-for="ImagePath" class="col-form-label col-3"></label>
+                        <div class="col-7">
+                            <input asp-for="ImagePath" class="form-control form-control-sm" type="file" readonly />
+                        </div>
+                        <div class="col-2">
+                            <span asp-validation-for="ImagePath" class="text-danger"></span>
+                        </div>
+                    </div> *@
+
+                    <div class="row mb-2">
+                        <label asp-for="Title" class="col-form-label col-3"></label>
+                        <div class="col-7">
+                            <input asp-for="Title" class="form-control form-control-sm" readonly />
+                        </div>
+                        <div class="col-2">
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label asp-for="Description" class="col-form-label col-3"></label>
+                        <div class="col-7">
+                            <input asp-for="Description" class="form-control form-control-sm" readonly />
+                        </div>
+                        <div class="col-2">
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-3">
+        <div>
+            <a asp-action="ManageTips" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-left"></i> Back to List</a>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Delete</button>
+        </div>
+    </div>
+</form>

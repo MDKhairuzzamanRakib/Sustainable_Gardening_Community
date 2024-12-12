@@ -1,0 +1,64 @@
+﻿@model Sustainable_Gardening_Community.Dtos.TipsDto
+@{
+    ViewData["Title"] = "Create Tips";
+}
+
+<h1 class="text-center p-2 bg-secondary text-light mt-2 mb-4">Add New Tips</h1>
+<form asp-action="Create" asp-controller="Tips" enctype="multipart/form-data" method="post">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header bg-secondary text-light">
+                    <h3 class="text-center">Tips Informations</h3>
+                </div>
+                <div class="card-body">
+
+                    <div class="row mb-2">
+                        <label asp-for="ImagePath" class="col-form-label col-3"></label>
+                        <div class="col-7">
+                            <input asp-for="ImagePath" class="form-control form-control-sm" type="file" />
+                        </div>
+                        <div class="col-2">
+                            <span asp-validation-for="ImagePath" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label asp-for="Title" class="col-form-label col-3"></label>
+                        <div class="col-7">
+                            <input asp-for="Title" class="form-control form-control-sm" />
+                        </div>
+                        <div class="col-2">
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label asp-for="Description" class="col-form-label col-3"></label>
+                        <div class="col-7">
+                            <textarea asp-for="Description" class="form-control form-control-sm"></textarea>
+                        </div>
+                        <div class="col-2">
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-3">
+        <div>
+            <a asp-action="ManageTips" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-left"></i> Back to List</a>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Save</button>
+        </div>
+    </div>
+</form>
+
+@section scripts {
+
+}

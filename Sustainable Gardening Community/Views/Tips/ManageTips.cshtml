@@ -1,21 +1,23 @@
 ﻿@model IEnumerable<Sustainable_Gardening_Community.Models.Tips>
 @{
-    ViewData["Title"] = "Tips";
+    ViewData["Title"] = "Manage Tips";
 }
 
 <div class="container-fluid page-header py-5 mb-4 wow fadeIn" data-wow-delay="0.1s">
     <div class="container text-center py-5">
-        <h1 class="display-3 text-white mb-4 animated slideInDown">Tips for Gardening</h1>
+        <h1 class="display-3 text-white mb-4 animated slideInDown">Manage Tips</h1>
         <nav aria-label="breadcrumb animated slideInDown">
             <ol class="breadcrumb justify-content-center mb-0">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Tips</li>
+                <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Manage Tips</li>
             </ol>
         </nav>
     </div>
 </div>
-
+<div class="d-flex justify-content-end">
+    <a asp-action="Create" class="btn btn-primary btn-sm mb-2"><i class="fa fa-plus-circle"></i> Add New Tips</a>
+</div>
 @foreach (var tip in Model)
 {
     <div class="row mb-3">
@@ -23,6 +25,10 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
+                        <div class="d-flex justify-content-end">
+                            <a asp-action="Edit" asp-route-id="@tip.Id" class="btn btn-success btn-sm mb-2 me-2"><i class="fa fa-edit"></i> Edit</a>
+                            <a asp-action="Delete" asp-route-id="@tip.Id" class="btn btn-danger btn-sm mb-2"><i class="fa fa-trash"></i> Delete</a>
+                        </div>
                         <div class="col-md-4">
                             <img src="@tip.Image" width="100%" height="auto" />
                         </div>
